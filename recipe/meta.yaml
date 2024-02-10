@@ -1,4 +1,4 @@
-{% set version = "2.17.0" %}
+{% set version = "2.21.0" %}
 
 package:
   name: google-cloud-cpp-ai
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/googleapis/google-cloud-cpp/archive/v{{ version }}.tar.gz
-  sha256: 8cb87ec2947e691a7f8631877e78453bcfda51b3d3cd4940794a376741888d37
+  sha256: b820159a4e6f17d0225e2266da563e53884567b8b33d00e45b30bc86be90ad1d
 
 build:
   number: 0
@@ -31,7 +31,7 @@ requirements:
 
 outputs:
   - name: libgoogle-cloud-aiplatform
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -63,7 +63,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_aiplatform\google_cloud_cpp_aiplatform-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-aiplatform-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -96,7 +96,7 @@ outputs:
         - google/cloud/aiplatform/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-automl
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -128,7 +128,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_automl\google_cloud_cpp_automl-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-automl-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -161,7 +161,7 @@ outputs:
         - google/cloud/automl/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-discoveryengine
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -193,7 +193,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_discoveryengine\google_cloud_cpp_discoveryengine-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-discoveryengine-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -226,7 +226,7 @@ outputs:
         - google/cloud/discoveryengine/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-dialogflow_es
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -259,7 +259,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_dialogflow_es\google_cloud_cpp_dialogflow_es-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-dialogflow_es-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -292,7 +292,7 @@ outputs:
         - google/cloud/dialogflow_es/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-dialogflow_cx
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -324,7 +324,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_dialogflow_cx\google_cloud_cpp_dialogflow_cx-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-dialogflow_cx-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -357,7 +357,7 @@ outputs:
         - google/cloud/dialogflow_cx/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-dlp
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -389,7 +389,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_dlp\google_cloud_cpp_dlp-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-dlp-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
@@ -422,7 +422,7 @@ outputs:
         - google/cloud/dlp/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-speech
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     requirements:
       build:
@@ -454,7 +454,7 @@ outputs:
         - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_speech\google_cloud_cpp_speech-config.cmake exit 1  # [win]
 
   - name: libgoogle-cloud-speech-devel
-    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.sh  # [unix]
     script: install-libgoogle-cloud.bat  # [win]
     build:
       run_exports:
