@@ -3,6 +3,12 @@
 set -euo pipefail
 
 case "${PKG_NAME}" in
+  libgoogle-cloud-documentai-devel)
+    # Do nothing, it is installed by libgoogle-cloud-contentwarehouse-devel.
+    ;;
+  libgoogle-cloud-documentai)
+    # Do nothing, it is installed by libgoogle-cloud-contentwarehouse.
+    ;;
   libgoogle-cloud-*-devel)
     # Use shell expansion to temove any `libgoogle-cloud-` prefix and the
     # `-devel` suffix from PKG_NAME and find the feature name.

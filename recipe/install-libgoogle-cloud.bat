@@ -14,7 +14,11 @@ set SRC_DIR="%SRC_DIR:\=/%"
 set FEATURE=%PKG_NAME:libgoogle-cloud-=%
 set FEATURE=%FEATURE:-devel=%
 
-if not [%PKG_NAME:-devel=%] == [%PKG_NAME%] (
+if [%PKG_NAME%] == [libgoogle-cloud-documentai-devel] (
+  @REM Do nothing, this is installed by libgoogle-cloud-contentwarehouse-devel
+) else if [%PKG_NAME%] == [libgoogle-cloud-documentai] (
+  @REM Do nothing, this is installed by libgoogle-cloud-contentwarehouse
+) else if not [%PKG_NAME:-devel=%] == [%PKG_NAME%] (
   cmake --install build/%FEATURE%
   if %ERRORLEVEL% neq 0 exit 1
 ) else if not [%PKG_NAME:libgoogle-cloud-=%] == [%PKG_NAME%] (
