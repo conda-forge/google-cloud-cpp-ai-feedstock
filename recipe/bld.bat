@@ -9,11 +9,14 @@ set SRC_DIR="%SRC_DIR:\=/%"
 FOR %%G IN (
   aiplatform
   automl
+  contentwarehouse
   discoveryengine
   dialogflow_es
   dialogflow_cx
   dlp
-  speech) DO (
+  retail
+  speech
+  talent) DO (
     cmake -G "Ninja" ^
         -S . -B build/%%G ^
         -DGOOGLE_CLOUD_CPP_ENABLE=%%G ^

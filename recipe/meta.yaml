@@ -9,7 +9,7 @@ source:
   sha256: b820159a4e6f17d0225e2266da563e53884567b8b33d00e45b30bc86be90ad1d
 
 build:
-  number: 1
+  number: 2
 requirements:
   build:
     - {{ compiler('c') }}
@@ -159,6 +159,71 @@ outputs:
       source_files:
         - google/cloud/automl/quickstart/*.cc
         - google/cloud/automl/quickstart/CMakeLists.txt
+
+  - name: libgoogle-cloud-contentwarehouse
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+        - libabseil
+        - libprotobuf
+        - libgrpc
+    test:
+      commands:
+        # presence of shared library (unix)
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_contentwarehouse.{{ version }}.dylib  # [osx]
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_contentwarehouse.so.{{ version }}  # [linux]
+
+        # absence of static library (windows). It belongs only in devel package.
+        - if exist %LIBRARY_LIB%\google_cloud_cpp_contentwarehouse.lib exit 1  # [win]
+
+        # absence of headers (they belong in devel package).
+        - test ! -f $PREFIX/include/google/cloud/version.h  # [unix]
+        - if exist %LIBRARY_INC%\include\google\cloud\version.h exit 1  # [win]
+
+        # absence of metadata for CMake & pkgconfig (belongs in the devel package).
+        - test ! -f $PREFIX/lib/pkgconfig/google_cloud_cpp_contentwarehouse.pc  # [unix]
+        - test ! -f $PREFIX/lib/cmake/google_cloud_cpp_contentwarehouse/google_cloud_cpp_contentwarehouse-config.cmake  # [unix]
+        - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_contentwarehouse\google_cloud_cpp_contentwarehouse-config.cmake exit 1  # [win]
+
+  - name: libgoogle-cloud-contentwarehouse-devel
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse", max_pin="x.x") }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+      run:
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse", exact=True) }}
+    test:
+      commands:
+        # build an example.
+        - ./run_test_feature.sh   # [unix]
+        - ./run_test_feature.bat  # [win]
+      requires:
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+        - libgoogle-cloud-devel =={{ version }}
+      files:
+        - run_test_feature.sh
+        - run_test_feature.bat
+      source_files:
+        - google/cloud/contentwarehouse/quickstart/*.cc
+        - google/cloud/contentwarehouse/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-discoveryengine
     script: install-libgoogle-cloud.sh   # [unix]
@@ -421,6 +486,143 @@ outputs:
         - google/cloud/dlp/quickstart/*.cc
         - google/cloud/dlp/quickstart/CMakeLists.txt
 
+  - name: libgoogle-cloud-documentai
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        # This is slightly different from the other subpackages.
+        # `contentwarehouse` automatically builds installs `documentai` too.
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse", exact=True) }}
+        - libgoogle-cloud-devel =={{ version }}
+      run:
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse", exact=True) }}
+        - libgoogle-cloud =={{ version }}
+    test:
+      commands:
+        # presence of shared library (unix)
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_documentai.{{ version }}.dylib  # [osx]
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_documentai.so.{{ version }}  # [linux]
+
+        # absence of static library (windows). It belongs only in devel package.
+        - if exist %LIBRARY_LIB%\google_cloud_cpp_documentai.lib exit 1  # [win]
+
+        # absence of headers (they belong in devel package).
+        - test ! -f $PREFIX/include/google/cloud/version.h  # [unix]
+        - if exist %LIBRARY_INC%\include\google\cloud\version.h exit 1  # [win]
+
+        # absence of metadata for CMake & pkgconfig (belongs in the devel package).
+        - test ! -f $PREFIX/lib/pkgconfig/google_cloud_cpp_documentai.pc  # [unix]
+        - test ! -f $PREFIX/lib/cmake/google_cloud_cpp_documentai/google_cloud_cpp_documentai-config.cmake  # [unix]
+        - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_documentai\google_cloud_cpp_documentai-config.cmake exit 1  # [win]
+
+  - name: libgoogle-cloud-documentai-devel
+    # This is slightly different from the other subpackages. `contentwarehouse`
+    # automatically builds installs `documentai` too.
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage("libgoogle-cloud-documentai", max_pin="x.x") }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse-devel", exact=True) }}
+        - libgoogle-cloud-devel =={{ version }}
+      run:
+        - {{ pin_subpackage("libgoogle-cloud-contentwarehouse-devel", exact=True) }}
+        - libgoogle-cloud-devel =={{ version }}
+    test:
+      commands:
+        # build an example.
+        - ./run_test_feature.sh   # [unix]
+        - ./run_test_feature.bat  # [win]
+      requires:
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+        - libgoogle-cloud-devel =={{ version }}
+      files:
+        - run_test_feature.sh
+        - run_test_feature.bat
+      source_files:
+        - google/cloud/documentai/quickstart/*.cc
+        - google/cloud/documentai/quickstart/CMakeLists.txt
+
+  - name: libgoogle-cloud-retail
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+        - libabseil
+        - libprotobuf
+        - libgrpc
+    test:
+      commands:
+        # presence of shared library (unix)
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_retail.{{ version }}.dylib  # [osx]
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_retail.so.{{ version }}  # [linux]
+
+        # absence of static library (windows). It belongs only in devel package.
+        - if exist %LIBRARY_LIB%\google_cloud_cpp_retail.lib exit 1  # [win]
+
+        # absence of headers (they belong in devel package).
+        - test ! -f $PREFIX/include/google/cloud/version.h  # [unix]
+        - if exist %LIBRARY_INC%\include\google\cloud\version.h exit 1  # [win]
+
+        # absence of metadata for CMake & pkgconfig (belongs in the devel package).
+        - test ! -f $PREFIX/lib/pkgconfig/google_cloud_cpp_retail.pc  # [unix]
+        - test ! -f $PREFIX/lib/cmake/google_cloud_cpp_retail/google_cloud_cpp_retail-config.cmake  # [unix]
+        - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_retail\google_cloud_cpp_retail-config.cmake exit 1  # [win]
+
+  - name: libgoogle-cloud-retail-devel
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage("libgoogle-cloud-retail", max_pin="x.x") }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+      run:
+        - {{ pin_subpackage("libgoogle-cloud-retail", exact=True) }}
+    test:
+      commands:
+        # build an example.
+        - ./run_test_feature.sh   # [unix]
+        - ./run_test_feature.bat  # [win]
+      requires:
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+        - libgoogle-cloud-devel =={{ version }}
+      files:
+        - run_test_feature.sh
+        - run_test_feature.bat
+      source_files:
+        - google/cloud/retail/quickstart/*.cc
+        - google/cloud/retail/quickstart/CMakeLists.txt
+
   - name: libgoogle-cloud-speech
     script: install-libgoogle-cloud.sh   # [unix]
     script: install-libgoogle-cloud.bat  # [win]
@@ -485,6 +687,71 @@ outputs:
       source_files:
         - google/cloud/speech/quickstart/*.cc
         - google/cloud/speech/quickstart/CMakeLists.txt
+
+  - name: libgoogle-cloud-talent
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+        - libabseil
+        - libprotobuf
+        - libgrpc
+    test:
+      commands:
+        # presence of shared library (unix)
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_talent.{{ version }}.dylib  # [osx]
+        - test -f $PREFIX/lib/libgoogle_cloud_cpp_talent.so.{{ version }}  # [linux]
+
+        # absence of static library (windows). It belongs only in devel package.
+        - if exist %LIBRARY_LIB%\google_cloud_cpp_talent.lib exit 1  # [win]
+
+        # absence of headers (they belong in devel package).
+        - test ! -f $PREFIX/include/google/cloud/version.h  # [unix]
+        - if exist %LIBRARY_INC%\include\google\cloud\version.h exit 1  # [win]
+
+        # absence of metadata for CMake & pkgconfig (belongs in the devel package).
+        - test ! -f $PREFIX/lib/pkgconfig/google_cloud_cpp_talent.pc  # [unix]
+        - test ! -f $PREFIX/lib/cmake/google_cloud_cpp_talent/google_cloud_cpp_talent-config.cmake  # [unix]
+        - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_talent\google_cloud_cpp_talent-config.cmake exit 1  # [win]
+
+  - name: libgoogle-cloud-talent-devel
+    script: install-libgoogle-cloud.sh   # [unix]
+    script: install-libgoogle-cloud.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage("libgoogle-cloud-talent", max_pin="x.x") }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - libgoogle-cloud-devel =={{ version }}
+      run:
+        - {{ pin_subpackage("libgoogle-cloud-talent", exact=True) }}
+    test:
+      commands:
+        # build an example.
+        - ./run_test_feature.sh   # [unix]
+        - ./run_test_feature.bat  # [win]
+      requires:
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+        - libgoogle-cloud-devel =={{ version }}
+      files:
+        - run_test_feature.sh
+        - run_test_feature.bat
+      source_files:
+        - google/cloud/talent/quickstart/*.cc
+        - google/cloud/talent/quickstart/CMakeLists.txt
 
 about:
   home: https://github.com/googleapis/google-cloud-cpp

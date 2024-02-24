@@ -17,11 +17,14 @@ fi
 feature_list=(
   aiplatform
   automl
+  contentwarehouse
   discoveryengine
   dialogflow_es
   dialogflow_cx
   dlp
+  retail
   speech
+  talent
 )
 for feature in "${feature_list[@]}"; do
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ'): Building ${feature}"
