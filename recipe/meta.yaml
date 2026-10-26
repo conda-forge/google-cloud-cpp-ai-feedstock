@@ -1,4 +1,4 @@
-{% set version = "3.9.0" %}
+{% set version = "3.12.0" %}
 
 package:
   name: google-cloud-cpp-ai
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/googleapis/google-cloud-cpp/archive/v{{ version }}.tar.gz
-  sha256: 5e4e179531cd947e9d6893d0fcefcf2b3631b4e182f424138dbb2b7dd5334ce4
+  sha256: b50ab4e2123f3d5982961ca6e497a952dcf820a57162c087e5478e2ffe97b30e
   patches:
     - 0001-Adapt-for-OpenTelemetry-1.25.patch
 
@@ -99,73 +99,6 @@ outputs:
       source_files:
         - google/cloud/aiplatform/quickstart/*.cc
         - google/cloud/aiplatform/quickstart/CMakeLists.txt
-
-  - name: libgoogle-cloud-automl
-    script: install-libgoogle-cloud.sh  # [unix]
-    script: install-libgoogle-cloud.bat  # [win]
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ stdlib("c") }}
-        - {{ compiler('cxx') }}
-        - cmake
-        - ninja
-      host:
-        - libgoogle-cloud-devel =={{ version }}
-        - libabseil
-        - libprotobuf
-        - libgrpc
-    test:
-      commands:
-        # presence of shared library (unix)
-        - test -f $PREFIX/lib/libgoogle_cloud_cpp_automl.{{ version }}.dylib  # [osx]
-        - test -f $PREFIX/lib/libgoogle_cloud_cpp_automl.so.{{ version }}  # [linux]
-
-        # absence of static library (windows). It belongs only in devel package.
-        - if exist %LIBRARY_LIB%\google_cloud_cpp_automl.lib exit 1  # [win]
-
-        # absence of headers (they belong in devel package).
-        - test ! -f $PREFIX/include/google/cloud/version.h  # [unix]
-        - if exist %LIBRARY_INC%\include\google\cloud\version.h exit 1  # [win]
-
-        # absence of metadata for CMake & pkgconfig (belongs in the devel package).
-        - test ! -f $PREFIX/lib/pkgconfig/google_cloud_cpp_automl.pc  # [unix]
-        - test ! -f $PREFIX/lib/cmake/google_cloud_cpp_automl/google_cloud_cpp_automl-config.cmake  # [unix]
-        - if exist %LIBRARY_PREFIX%\lib\cmake\google_cloud_cpp_automl\google_cloud_cpp_automl-config.cmake exit 1  # [win]
-
-  - name: libgoogle-cloud-automl-devel
-    script: install-libgoogle-cloud.sh  # [unix]
-    script: install-libgoogle-cloud.bat  # [win]
-    build:
-      run_exports:
-        - {{ pin_subpackage("libgoogle-cloud-automl", max_pin="x.x") }}
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ stdlib("c") }}
-        - {{ compiler('cxx') }}
-        - cmake
-        - ninja
-      host:
-        - libgoogle-cloud-devel =={{ version }}
-      run:
-        - {{ pin_subpackage("libgoogle-cloud-automl", exact=True) }}
-    test:
-      commands:
-        # build an example.
-        - ./run_test_feature.sh   # [unix]
-        - ./run_test_feature.bat  # [win]
-      requires:
-        - {{ compiler('cxx') }}
-        - cmake
-        - ninja
-        - libgoogle-cloud-devel =={{ version }}
-      files:
-        - run_test_feature.sh
-        - run_test_feature.bat
-      source_files:
-        - google/cloud/automl/quickstart/*.cc
-        - google/cloud/automl/quickstart/CMakeLists.txt
 
   - name: libgoogle-cloud-contentwarehouse
     script: install-libgoogle-cloud.sh  # [unix]

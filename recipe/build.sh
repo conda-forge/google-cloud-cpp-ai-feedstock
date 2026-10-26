@@ -16,7 +16,6 @@ fi
 # `google-cloud-cpp`.
 feature_list=(
   aiplatform
-  automl
   contentwarehouse
   discoveryengine
   dialogflow_es

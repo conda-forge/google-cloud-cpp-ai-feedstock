@@ -62,8 +62,6 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--aiplatform-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-aiplatform.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-aiplatform.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-aiplatform.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--aiplatform--devel-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform-devel) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-aiplatform-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform-devel) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-aiplatform-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform-devel) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-aiplatform-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-aiplatform-devel) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--automl-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-automl.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-automl.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-automl.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--automl--devel-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl-devel) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-automl-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl-devel) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-automl-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl-devel) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-automl-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-automl-devel) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--contentwarehouse-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-contentwarehouse.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-contentwarehouse.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-contentwarehouse.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--contentwarehouse--devel-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse-devel) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-contentwarehouse-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse-devel) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-contentwarehouse-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse-devel) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-contentwarehouse-devel.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-contentwarehouse-devel) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libgoogle--cloud--dialogflow__cx-green.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-dialogflow_cx) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libgoogle-cloud-dialogflow_cx.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-dialogflow_cx) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libgoogle-cloud-dialogflow_cx.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-dialogflow_cx) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libgoogle-cloud-dialogflow_cx.svg)](https://anaconda.org/conda-forge/libgoogle-cloud-dialogflow_cx) |
@@ -100,7 +98,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-automl libgoogle-cloud-automl-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
+conda install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
 ```
 
 </details>
@@ -109,7 +107,7 @@ conda install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoo
 <summary>With mamba</summary>
 
 ```
-mamba install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-automl libgoogle-cloud-automl-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
+mamba install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
 ```
 
 </details>
@@ -119,9 +117,9 @@ mamba install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoo
 
 ```
 # for adding to your local project
-pixi add libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-automl libgoogle-cloud-automl-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
+pixi add libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
 # for installing globally
-pixi global install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-automl libgoogle-cloud-automl-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
+pixi global install libgoogle-cloud-aiplatform libgoogle-cloud-aiplatform-devel libgoogle-cloud-contentwarehouse libgoogle-cloud-contentwarehouse-devel libgoogle-cloud-dialogflow_cx libgoogle-cloud-dialogflow_cx-devel libgoogle-cloud-dialogflow_es libgoogle-cloud-dialogflow_es-devel libgoogle-cloud-discoveryengine libgoogle-cloud-discoveryengine-devel libgoogle-cloud-dlp libgoogle-cloud-dlp-devel libgoogle-cloud-documentai libgoogle-cloud-documentai-devel libgoogle-cloud-retail libgoogle-cloud-retail-devel libgoogle-cloud-speech libgoogle-cloud-speech-devel libgoogle-cloud-talent libgoogle-cloud-talent-devel
 ```
 
 </details>
@@ -175,6 +173,7 @@ mamba repoquery depends libgoogle-cloud-aiplatform --channel conda-forge
 </details>
 
 
+
 About conda-forge
 =================
 
@@ -189,9 +188,7 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
-[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+[Azure](https://azure.microsoft.com/en-us/services/devops/) and [GitHub](https://github.com/)
 it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.

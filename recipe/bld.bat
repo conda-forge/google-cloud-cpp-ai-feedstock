@@ -8,7 +8,6 @@ set SRC_DIR="%SRC_DIR:\=/%"
 
 FOR %%G IN (
   aiplatform
-  automl
   contentwarehouse
   discoveryengine
   dialogflow_es
